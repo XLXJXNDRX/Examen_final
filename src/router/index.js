@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import DashboardView from '../views/DashboardView.vue'
-import ProductView from '../views/ProductView.vue' // Importación corregida
-
+import ProductView from '../views/ProductView.vue' 
+//arreglamos un boton que no se dirigia a la ruta que era
 const routes = [
   {
     path: '/',
@@ -15,8 +15,8 @@ const routes = [
     component: DashboardView
   },
   {
-    path: '/dashboard/productos', // Ruta exacta solicitada por el Punto 6
-    name: 'productos',
+    path: '/dashboard/habitaciones', 
+    name: 'habitaciones',
     component: ProductView
   }
 ]
@@ -24,6 +24,24 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes
+})
+
+//aqui modifique para la seguridad de la ruta
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('user_authenticated') === 'true'
+  if (to.path.startsWith('/dashboard')) {
+    if (!isAuthenticated) {
+      next('/') 
+    } else {
+      next() 
+    }
+  } 
+  else if (to.path === '/' && isAuthenticated) {
+    next('/dashboard') 
+  } 
+  else {
+    next() 
+  }
 })
 
 export default router

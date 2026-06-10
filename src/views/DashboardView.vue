@@ -45,13 +45,13 @@ import NavbarComponent from '../components/NavbarComponent.vue'
 import ProductCardComponent from '../components/ProductCardComponent.vue'
 import FooterComponent from '../components/FooterComponent.vue'
 
-// Nombre unificado de tu negocio
+
 const nombreHotel = ref('Hotel Boutique')
 
-// Arreglo reactivo que contendrá el inventario del LocalStorage
+
 const habitaciones = ref([])
 
-// El inventario base de 10 habitaciones por si el almacenamiento local está vacío
+
 const habitacionesBase = [
   { "titulo": "Habitación 101", "precio": 80000, "sala": "Habitación Sencilla Estándar" },
   { "titulo": "Habitación 102", "precio": 80000, "sala": "Habitación Sencilla Estándar" },
@@ -66,7 +66,7 @@ const habitacionesBase = [
 ]
 
 onMounted(() => {
-  // Sincronización en tiempo real del ciclo de vida con la persistencia local
+  
   const local = localStorage.getItem('mi_hotel_storage')
   if (local && JSON.parse(local).length > 0) {
     habitaciones.value = JSON.parse(local)
@@ -76,7 +76,7 @@ onMounted(() => {
   }
 })
 
-// Función para el evento personalizado ($emit) que pide la guía en el punto 5
+
 const alertaDetalle = (titulo, categoria, precio) => {
   alert(`[AUDITORÍA INTERNA]\n\nEstructura: ${titulo}\nCategoría: ${categoria}\nTarifa base: $${Number(precio).toLocaleString()} COP\nEstado: Operativa / Limpia.`);
 }

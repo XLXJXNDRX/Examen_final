@@ -52,3 +52,9 @@ Ejemplo de consumo de la API externa para gestionar los productos:
 Uso de Props (De Padre a Hijo): La pantalla de inicio (DashboardView.vue) tiene la lista de habitaciones y usa el componente ProductCardComponent.vue para mostrarlas en forma de tarjetas cuadradas. El Padre le pasa los datos individuales a cada tarjeta usando atributos como :nombre, :precio y :categoria.
 
 4) Uso de Eventos (De Hijo a Padre): Cuando el usuario le da clic al botón "Ver Detalles" dentro de una tarjeta de habitación, el componente tarjeta no hace nada por sí mismo; emite un aviso hacia arriba usando $emit('ver-detalle'). La pantalla Padre captura ese evento y es la encargada de abrir la alerta en el navegador con la información completa.
+
+----------------------------------------------------------------------------------------------------------------------------------
+Examen final: 
+1: Se configuro el tema de la seguridad, modifique el LoginView.vue, index.js y sidebarcomponents para que la seguridad mejore-Alejandro y owin reunion dia 10/06/2026
+2: elimine un boton en mal funcionamiento -Alejandro
+3: Arreglamos el boton de habitaciones que presentaba problemas.

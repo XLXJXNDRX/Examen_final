@@ -19,15 +19,20 @@
     </ul>
 
     <div class="pt-3 border-top border-secondary">
-      <router-link to="/" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center py-2">
-        <i class="bi bi-box-arrow-right me-2"></i> Salir del Sistema
-      </router-link>
+      <button @click="cerrarSesion" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center py-2">
+        <i class="bi bi-box-arrow-right me-2"></i> Salir del sistema
+      </button>
     </div>
   </div>
 </template>
 
-<style scoped>
-.nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const cerrarSesion = () => {
+  localStorage.removeItem('user_authenticated') 
+  router.push('/') 
 }
-</style>
+</script>

@@ -54,7 +54,7 @@ const handleLogin = () => {
   )
 
   if (usuarioEncontrado) {
-
+    localStorage.setItem('user_authenticated', "true")
     router.push('/dashboard')
   } else {
 
