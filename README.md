@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Examen final Proyecto: Sistema de Administración Hotelera (Hotel Admin)
 Entorno Tecnológico: Vue 3 (Composition API), Vite, Bootstrap 5, Bootstrap Icons, MockAPI
 Estado: Fase de Finalización e Integración REST Completa: 
@@ -5,6 +6,11 @@ Estado: Fase de Finalización e Integración REST Completa:
 1. Se configuro el tema de la seguridad, modifique el LoginView.vue, index.js y sidebarcomponents para que la seguridad mejore-Alejandro y owin reunion dia 10/06/2026
 2. elimine un boton en mal funcionamiento -Alejandro
 3. Arreglamos el boton de habitaciones que presentaba problemas.
+=======
+# Examen-final-desarollo
+Examen-final-desarollo
+
+>>>>>>> 0e5aa1045324332310d8f73affd86a2ad840ed5a
 
 4. MÓDULO: PANEL DE CONTROL (DASHBOARD)
 Consumo e Ingesta de Datos: Implementación de peticiones asíncronas HTTP GET orientadas al recurso /products de MockAPI para la obtención del inventario activo de habitaciones en el ciclo de vida inicial del componente (onMounted).
@@ -39,4 +45,12 @@ Gestión de Ciclo de Vida de Modales: La inicialización y ocultamiento de los c
 
 17. Control de Excepciones en Red: Todo bloque de comunicación asíncrona incorpora estructuras try/catch destinadas a capturar e interceptar fallas en la red o respuestas de estado no exitosas (!response.ok), impidiendo el bloqueo o congelamiento de la aplicación y derivando la anomalía hacia la interfaz de alertas para su notificación inmediata.
 
+<<<<<<< HEAD
 18. Corrección de Accesibilidad y Foco (WAI-ARIA): Se detectaron y subsanaron advertencias en la consola del desarrollador asociadas al atributo aria-hidden cuando los modales pasaban a estado oculto manteniendo el foco del teclado en elementos internos. Se resolvió mediante la inyección del método .blur() en el elemento activo del DOM antes de ejecutar el cierre de la ventana, forzando la restitución del foco a la pantalla principal y garantizando el cumplimiento de los estándares técnicos exigidos.
+=======
+----------------------------------------------------------------------------------------------------------------------------------
+Examen final: 
+1: Se configuro el tema de la seguridad, modifique el LoginView.vue, index.js y sidebarcomponents para que la seguridad mejore-Alejandro y owin reunion dia 10/06/2026
+2: elimine un boton en mal funcionamiento -Alejandro
+3: Arreglamos el boton de habitaciones que presentaba problemas.
+>>>>>>> 0e5aa1045324332310d8f73affd86a2ad840ed5a
