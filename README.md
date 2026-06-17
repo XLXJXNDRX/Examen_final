@@ -1,60 +1,42 @@
-# segundo-parcial-des-app-web
+Examen final Proyecto: Sistema de Administración Hotelera (Hotel Admin)
+Entorno Tecnológico: Vue 3 (Composition API), Vite, Bootstrap 5, Bootstrap Icons, MockAPI
+Estado: Fase de Finalización e Integración REST Completa: 
 
-Segundo Parcial - Desarrollo Web II
+1. Se configuro el tema de la seguridad, modifique el LoginView.vue, index.js y sidebarcomponents para que la seguridad mejore-Alejandro y owin reunion dia 10/06/2026
+2. elimine un boton en mal funcionamiento -Alejandro
+3. Arreglamos el boton de habitaciones que presentaba problemas.
 
-## Descripción general del negocio y objetivo de la aplicación.
-Esta aplicación fue creada para el control interno de un hotel boutique (administración de tipo Backoffice). El negocio necesita llevar un registro ordenado de las habitaciones que tiene listas para ofrecer. El objetivo de la aplicación es permitirle al administrador gestionar este inventario en tiempo real, pudiendo revisar el número de habitación, el precio base por noche y la acomodación (si es sencilla, doble o suite presidencial).
+4. MÓDULO: PANEL DE CONTROL (DASHBOARD)
+Consumo e Ingesta de Datos: Implementación de peticiones asíncronas HTTP GET orientadas al recurso /products de MockAPI para la obtención del inventario activo de habitaciones en el ciclo de vida inicial del componente (onMounted).
 
----
+5. Automatización de UI mediante Lógica Reactiva: Desarrollo de funciones lógicas de mapeo (obtenerImagenHabitacion y obtenerServicios) encargadas de normalizar las cadenas de texto del backend. Mediante estructuras condicionales que evalúan palabras clave (suite, deluxe, doble, individual), el sistema asigna de forma dinámica recursos visuales de alta resolución y un vector parametrizado con las comodidades de la habitación.
 
-## Información relevante de los integrantes o desarrolladores de la aplicación. 
-Estudiante 1: Alejandro Jose Reverol Ramos - Código: 192453
-Estudiante 2: Owin Leon  Código: 192444
-Materia: Desarrollo Web II
-Universidad: Universidad Francisco de Paula Santander seccional Ocaña (UFPSO)
+6. Optimización de Interfaz (Refactorización de UX): Remoción de controles redundantes de bloqueo de fechas que carecían de soporte en la lógica del negocio. Se reestructuró el modal informativo para focalizar la acción del usuario en un único botón de retorno de ancho completo, garantizando una interfaz limpia y simétrica.
 
----
+7. MÓDULO: GESTIÓN DE TARIFAS Y HABITACIONES
+Despliegue de Datos: Renderizado dinámico del inventario a través de una interfaz de tarjetas responsivas y estructuras tabulares que reflejan fielmente el estado del recurso hospedado en el backend.
 
-## Estructura del proyecto en una imagen.
-src/
-├── components/                  # Componentes pequeños que se reutilizan
-│   ├── FooterComponent.vue      # Pie de página del hotel
-│   ├── NavbarComponent.vue      # Barra de arriba con el nombre de la pantalla
-│   ├── ProductCardComponent.vue # Tarjeta individual para mostrar cada habitación
-│   └── SidebarComponent.vue     # Menú de la izquierda para navegar
-├── data/                        # Archivos de datos simulados
-│   ├── cartelera.json           # Lista con las habitaciones iniciales
-│   └── usuarios.json            # Usuarios y contraseñas de prueba
-├── router/
-│   └── index.js                 # Manejo de rutas de la aplicación
-├── views/                       # Pantallas grandes del sistema
-│   ├── DashboardView.vue        # Panel de inicio con las tarjetas
-│   ├── LoginView.vue            # Formulario para iniciar sesión
-│   └── ProductView.vue          # Pantalla del CRUD (Tabla de habitaciones)
-├── App.vue                      # Archivo raíz principal
-└── main.js                      # Inicialización del proyecto en Vue
+8. Persistencia de Datos (Creación y Edición): Vinculación de formularios estructurados mediante directivas v-model hacia estados reactivos locales. El almacenamiento se procesa mediante bifurcación lógica: peticiones de tipo POST para la inserción de nuevos registros y peticiones PUT dirigidas por el identificador único (id) para la actualización de registros preexistentes.
 
-Para que el proyecto fuera ordenado, aplicamos la modularización de la siguiente manera:
+9. Validación de Destrucción de Registros: Sustitución de los flujos de confirmación tradicionales de JavaScript por diálogos modales embebidos de Bootstrap, asegurando que la petición HTTP DELETE solo se ejecute tras una confirmación explícita por parte del operador del sistema.
 
-1) Vistas (Views): Son las pantallas completas a las que entra el usuario. Creamos LoginView.vue para el acceso, DashboardView.vue para el inicio general y ProductView.vue para gestionar las habitaciones.
+10. MÓDULO: ADMINISTRACIÓN DE USUARIOS
+Modelado del Recurso: Integración de un segundo endpoint independiente (/users) en el servidor MockAPI para segmentar la persistencia de las cuentas del personal administrativo respecto al inventario de habitaciones.
 
-2) Componentes (Components): Son partes pequeñas de código que aislamos para no tener que escribirlas muchas veces. Por ejemplo, el menú lateral (SidebarComponent) y el encabezado (NavbarComponent) se diseñaron una sola vez y se mandan a llamar dentro de las pantallas principales.
+11. Estructura Tabular Dinámica: Implementación de una tabla de datos que mapea las propiedades id, usuario y email consumidas en tiempo real desde el servicio REST.
 
-3) Rutas (Routes): En el archivo router/index.js configuramos qué componente debe mostrarse según el enlace en el que esté el navegador (ej: /login, /dashboard, /dashboard/productos). En el archivo App.vue dejamos la etiqueta <router-view> que funciona como el espacio donde se van intercambiando estas pantallas sin recargar la página completa.
+12. Control de Modales Acoplados: Centralización de los flujos de alta y modificación dentro de un único componente modal adaptativo. La UI conmuta sus títulos, etiquetas y métodos de envío en función del estado de la variable lógica editando, mitigando la duplicación de código en el documento HTML.
 
-Ejemplo de consumo de la API externa para gestionar los productos:
+13. MAQUETACIÓN, ESTILOS Y ALERTAS
+Diseño Adaptativo (Grid System): Uso estricto de las directivas de Bootstrap 5 para el diseño responsivo, empleando contenedores fluidos y rejillas configuradas con clases multiplicadoras (row-cols-1 row-cols-md-4) para garantizar la correcta visualización del panel en diferentes resoluciones de pantalla.
 
-1) En la vista de habitaciones (ProductView.vue) agregamos un botón especial. Al presionarlo, el sistema ejecuta una función que hace un llamado real con fetch a un servidor de pruebas en la web (https://jsonplaceholder.typicode.com).
+14. Sistema Centralizado de Alertas: Incorporación de un componente de alertas flotante (.alert) condicionado reactivamente. Cada resolución de promesa HTTP exitosa o fallida despacha un estado que renderiza un mensaje informativo con su respectiva codificación de color semántico (success, warning, danger), destruyéndose automáticamente del DOM tras un intervalo de 3000 milisegundos para no interrumpir el flujo de trabajo.
 
-2) Cuando la API responde, el código toma esos datos de prueba, los convierte al formato de habitaciones (asignándoles precio y acomodación) y los inyecta dentro de la tabla actual y del almacenamiento local. Esto sirve para simular cómo se conectaría la aplicación con una base de datos real en la nube.
+15. Semántica Visual: Inserción de la suite oficial Bootstrap Icons en los encabezados, tablas y botones de operaciones para estandarizar la iconografía y facilitar la navegación intuitiva dentro del software.
 
-3) Ejemplo de comunicación entre componentes (props o eventos).
-Uso de Props (De Padre a Hijo): La pantalla de inicio (DashboardView.vue) tiene la lista de habitaciones y usa el componente ProductCardComponent.vue para mostrarlas en forma de tarjetas cuadradas. El Padre le pasa los datos individuales a cada tarjeta usando atributos como :nombre, :precio y :categoria.
+16. RESOLUCIÓN DE EXCEPCIONES Y MANEJO DE INSTANCIAS (BUENAS PRÁCTICAS)
+Gestión de Ciclo de Vida de Modales: La inicialización y ocultamiento de los cuadros de diálogo se despliega de manera programática mediante la API imperativa de Bootstrap (Modal.getInstance()), evitando conflictos en el renderizado asíncrono de los datos de los formularios.
 
-4) Uso de Eventos (De Hijo a Padre): Cuando el usuario le da clic al botón "Ver Detalles" dentro de una tarjeta de habitación, el componente tarjeta no hace nada por sí mismo; emite un aviso hacia arriba usando $emit('ver-detalle'). La pantalla Padre captura ese evento y es la encargada de abrir la alerta en el navegador con la información completa.
+17. Control de Excepciones en Red: Todo bloque de comunicación asíncrona incorpora estructuras try/catch destinadas a capturar e interceptar fallas en la red o respuestas de estado no exitosas (!response.ok), impidiendo el bloqueo o congelamiento de la aplicación y derivando la anomalía hacia la interfaz de alertas para su notificación inmediata.
 
-----------------------------------------------------------------------------------------------------------------------------------
-Examen final: 
-1: Se configuro el tema de la seguridad, modifique el LoginView.vue, index.js y sidebarcomponents para que la seguridad mejore-Alejandro y owin reunion dia 10/06/2026
-2: elimine un boton en mal funcionamiento -Alejandro
-3: Arreglamos el boton de habitaciones que presentaba problemas.
+18. Corrección de Accesibilidad y Foco (WAI-ARIA): Se detectaron y subsanaron advertencias en la consola del desarrollador asociadas al atributo aria-hidden cuando los modales pasaban a estado oculto manteniendo el foco del teclado en elementos internos. Se resolvió mediante la inyección del método .blur() en el elemento activo del DOM antes de ejecutar el cierre de la ventana, forzando la restitución del foco a la pantalla principal y garantizando el cumplimiento de los estándares técnicos exigidos.
