@@ -1,6 +1,6 @@
-# segundo-parcial-des-app-web
+# Examen-final-desarollo
+Examen-final-desarollo
 
-Segundo Parcial - Desarrollo Web II
 
 ## Descripción general del negocio y objetivo de la aplicación.
 Esta aplicación fue creada para el control interno de un hotel boutique (administración de tipo Backoffice). El negocio necesita llevar un registro ordenado de las habitaciones que tiene listas para ofrecer. El objetivo de la aplicación es permitirle al administrador gestionar este inventario en tiempo real, pudiendo revisar el número de habitación, el precio base por noche y la acomodación (si es sencilla, doble o suite presidencial).
